@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loadRestaurants } from "../store/actions";
+import { selectRestaurntsList } from "../store/selectors";
 
 class RestaurantsListPage extends React.Component {
   componentDidMount() {
@@ -19,7 +20,7 @@ class RestaurantsListPage extends React.Component {
 
 const mapState = state => {
   return {
-    restaurantsList: state.restaurantsListData
+    restaurantsList: selectRestaurntsList(state)
   };
 };
 
