@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import RestaurantListPage from "./components/RestaurantListPage";
+import RestaurantsListPage from "./components/RestaurantsListPage";
 
 const App = () => (
   <div className="page">
     <h1>React Uber eats</h1>
-    <RestaurantListPage />
+    <RestaurantsListPage />
   </div>
 );
 
