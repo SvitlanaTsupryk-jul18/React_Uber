@@ -1,11 +1,4 @@
-body,
-button,
-a,
-input {
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-}
+@import "styles/extends.scss";
 
 .restaurant-card {
   $height: 357px;
@@ -37,4 +30,60 @@ input {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(348px, 1fr));
   gap: 40px 20px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  padding: 16px 0;
+  background-color: white;
+
+  &__inner {
+    @extend %flex-row;
+  }
+  &__delivery-info {
+    @extend %flex-row;
+    margin-left: 7vw;
+    justify-content: flex-start;
+  }
+  &__search {
+    margin-left: auto;
+  }
+  &__link {
+    margin-left: 40px;
+    color: #1f1f1f;
+    padding: 13px 0;
+    white-space: nowrap;
+    &:hover {
+      text-decoration: unerline;
+    }
+  }
+}
+
+.control {
+  $border-color: #e0e0e0;
+  @extend %flex-row;
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  border-radius: 2px;
+  padding: 11px 16px;
+  transition: all 0.3s;
+  &__input {
+    min-height: 24px;
+    line-height: 24px;
+  }
+  &__img {
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+  }
+  &__icon {
+    padding-right: 10px;
+  }
+  & + & {
+    margin-left: 20px;
+  }
+  &--focused {
+    border-color: darken($border-color, 20);
+  }
 }
