@@ -2,15 +2,19 @@ import React from "react";
 import "./App.scss";
 import RestaurantsListPage from "./components/RestaurantsListPage";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => (
-  <div className="page">
+  <>
     <h1>React Uber eats</h1>
     <Header />
-    <main className="content">
-      <RestaurantsListPage />
-    </main>
-  </div>
+    <div className="page">
+      <main className="content">
+        <RestaurantsListPage />
+      </main>
+    </div>
+    <Footer />
+  </>
 );
 
 export default App;

@@ -32,9 +32,9 @@ class Input extends React.Component {
       className,
       name
     } = this.props;
-    const { isFocused } = this.state;
+
     const rootClass = cx("control", {
-      "control--focused": isFocused,
+      "control--focused": this.state.isFocused,
       [className]: !!className
     });
 

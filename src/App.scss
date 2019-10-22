@@ -87,3 +87,92 @@
     border-color: darken($border-color, 20);
   }
 }
+
+.footer {
+  background-color: #262626;
+  padding: 64px 0;
+
+  &__top,
+  &__bottom {
+    @extend %flex-row;
+    align-items: flex-start;
+  }
+
+  &__top {
+    border-bottom: 1px solid #c4c4c4;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+
+  &__logo {
+    margin-right: 40px;
+  }
+
+  &__left,
+  &__copyright {
+    flex-basis: 45vw;
+    padding-right: 40px;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 40px;
+  }
+
+  &__brands {
+    @extend %flex-row;
+    margin-bottom: 40px;
+  }
+
+  &__mobile-app {
+    display: inline-block;
+
+    &::first-of-type {
+      margin-right: 20px;
+    }
+  }
+
+  &__links:nth-last-of-type {
+    margin-left: 10vw;
+  }
+
+  &__bottom-links {
+    @extend %flex-row;
+    margin-bottom: 40px;
+
+    .links__link:not(:last-of-type) {
+      margin-right: 40px;
+    }
+  }
+
+  &__copyright {
+    color: white;
+    font-size: 14px;
+  }
+}
+
+.links {
+  &__link {
+    display: block;
+    margin-bottom: 16px;
+    color: white;
+    transition: all 0.2s;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.social__link {
+  margin-right: 20px;
+}
+
+.page {
+  padding-top: 40px;
+  min-height: 100vh;
+  margin-bottom: 40px;
+}
