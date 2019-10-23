@@ -12,3 +12,13 @@ export const selectRestaurntsList = createSelector(
     return feedItems.map(({ uuid }) => storesMap[uuid]);
   }
 );
+
+export const selectRestaurntsListError = createSelector(
+  rootSelector,
+  ({ error }) => error
+);
+
+export const selectisLoading = createSelector(
+  rootSelector,
+  ({ isLoading }) => isLoading
+);

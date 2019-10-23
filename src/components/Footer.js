@@ -1,8 +1,9 @@
 import React from "react";
+import Select from "./Select";
 
 const Footer = () => {
   return (
-    <footer className="restaurant-card">
+    <footer className="footer">
       <div className="content">
         <div className="footer__top">
           <div className="footer__left">
@@ -12,7 +13,21 @@ const Footer = () => {
                 src="./images/logo-white.svg"
                 alt="uber eats"
               />
-              <div className="">Language</div>
+              <Select
+                name="languages"
+                options={[
+                  {
+                    value: "en",
+                    label: "English"
+                  },
+                  {
+                    value: "ua",
+                    label: "Ukrainian"
+                  }
+                ]}
+                value="en"
+                iconUrl="./images/icons/world.svg"
+              />
             </div>
             <div className="footer__mobile-apps">
               <a href="#" className="footer__mobile-app">

@@ -1,9 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loadRestaurants } from "../store/actions";
-import { selectRestaurntsList } from "../store/selectors";
+import {
+  selectRestaurntsList,
+  selectisLoading,
+  selectRestaurntsListError
+} from "../store/selectors";
 import PropTypes from "prop-types";
 import RestaurantCard from "./RestaurantCard";
+import Loader from "./Loader";
 
 const DEFAULT_RANGE = "20-30min";
 
@@ -13,7 +18,10 @@ class RestaurantsListPage extends React.Component {
     loadRestaurants();
   }
   render() {
-    const { restaurantsList } = this.props;
+    const { restaurantsList, error, isLoading } = this.props;
+    if (isLoading) {
+      return <Loader />;
+    }
     return (
       <div className="restaurant-list">
         {restaurantsList.map(restaurant => {
@@ -42,7 +50,9 @@ class RestaurantsListPage extends React.Component {
 
 const mapState = state => {
   return {
-    restaurantsList: selectRestaurntsList(state)
+    restaurantsList: selectRestaurntsList(state),
+    error: selectRestaurntsListError(state),
+    isLoading: selectisLoading(state)
   };
 };
 
@@ -55,9 +65,13 @@ export default connect(
 
 RestaurantsListPage.propTypes = {
   restaurantsListData: PropTypes.arrayOf(PropTypes.shape({})),
-  loadRestaurants: PropTypes.func.isRequired
+  loadRestaurants: PropTypes.func.isRequired,
+  error: PropTypes.string,
+  isLoading: PropTypes.bool
 };
 
 RestaurantsListPage.defaultProps = {
-  restaurantsListData: []
+  restaurantsListData: [],
+  error: null,
+  isLoading: false
 };
