@@ -163,7 +163,7 @@
     white-space: nowrap;
 
     &:hover {
-      color: #5fb709;
+      color: $greenColor;
     }
   }
 }
@@ -176,6 +176,7 @@
   padding-top: 40px;
   min-height: 100vh;
   margin-bottom: 40px;
+  position: relative;
 }
 
 .select {
@@ -191,7 +192,7 @@
     padding: 10px 40px;
     color: white;
     cursor: pointer;
-    outline-color: #5fb709;
+    outline-color: $greenColor;
   }
 
   &__icon {
@@ -218,15 +219,9 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  // color: #fff;
-  // font-size: 30px;
-  // transition: 1s all;
-  // opacity: 1;
-  // visibility: visible;
 }
 
 .loader {
@@ -239,7 +234,7 @@
     bottom: 0;
     width: 10px;
     height: 50%;
-    background: #5fb709;
+    background: $greenColor;
     transform-origin: center bottom;
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 
@@ -398,5 +393,27 @@
   }
   100% {
     transform: scale(1, 1);
+  }
+}
+
+.error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__text {
+    font-size: 30px;
+    font-weight: 500;
+  }
+  &__link {
+    font-size: 24px;
+    &:hover {
+      color: $greenColor;
+    }
   }
 }

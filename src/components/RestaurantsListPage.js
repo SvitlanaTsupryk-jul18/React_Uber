@@ -9,6 +9,7 @@ import {
 import PropTypes from "prop-types";
 import RestaurantCard from "./RestaurantCard";
 import Loader from "./Loader";
+import Error from "./Error";
 
 const DEFAULT_RANGE = "20-30min";
 
@@ -22,6 +23,11 @@ class RestaurantsListPage extends React.Component {
     if (isLoading) {
       return <Loader />;
     }
+
+    if (error) {
+      return <Error message={error} />;
+    }
+
     return (
       <div className="restaurant-list">
         {restaurantsList.map(restaurant => {
