@@ -30,31 +30,40 @@ class Input extends React.Component {
       type,
       placeholder,
       className,
-      name
+      name,
+      isSmall,
+      label
     } = this.props;
 
-    const rootClass = cx("control", {
-      "control--focused": this.state.isFocused,
+    const inputWrapper = cx("control__input-wrapper", {
+      "control__input-wrapper--focused": this.state.isFocused,
       [className]: !!className
     });
 
+    const inputClass = cx("control__input", {
+      "control__input--small": isSmall
+    });
+
     return (
-      <div className={rootClass} onClick={this.focus} role="presentation">
-        {iconUrl && (
-          <img className="control__icon" src={iconUrl} alt={placeholder} />
-        )}
-        <input
-          ref={this.inputRef}
-          className="control__input"
-          type={type}
-          value={value}
-          name={name}
-          onChange={onChange}
-          placeholder={placeholder}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-        />
-      </div>
+      <label className="control" onClick={this.focus}>
+        {label && <p className="control">{label}</p>}
+        <div className={inputWrapper}>
+          {iconUrl && (
+            <img className="control__icon" src={iconUrl} alt={placeholder} />
+          )}
+          <input
+            ref={this.inputRef}
+            className={inputClass}
+            type={type}
+            value={value}
+            name={name}
+            onChange={onChange}
+            placeholder={placeholder}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+          />
+        </div>
+      </label>
     );
   }
 }
@@ -67,11 +76,16 @@ Input.propTypes = {
   onChange: PropTypes.func,
   iconUrl: PropTypes.string,
   type: PropTypes.string,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  isSmall: PropTypes.bool
 };
 
 Input.defaultProps = {
   iconUrl: "",
   type: "text",
-  placeholder: ""
+  placeholder: "",
+  className: "",
+  label: "",
+  isSmall: true
 };
