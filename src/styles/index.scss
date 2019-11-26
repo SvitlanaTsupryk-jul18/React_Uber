@@ -20,6 +20,9 @@ select {
   max-width: 1160px;
   padding: 0 34px;
   margin: 0 auto;
+  @media (max-width: 550px) {
+    padding: 0 20px;
+  }
 }
 
 input {
@@ -27,6 +30,13 @@ input {
   background-color: transparent;
   outline: none;
 }
+
 a {
   text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  outline: none;
 }

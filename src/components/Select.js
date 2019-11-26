@@ -13,9 +13,7 @@ const Select = props => {
         className="select__input"
       >
         {options.map(({ value: optionValue, label }) => (
-          <option value={optionValue} selected={value === optionValue}>
-            {label}
-          </option>
+          <option value={optionValue}>{label}</option>
         ))}
       </select>
       {iconUrl && (

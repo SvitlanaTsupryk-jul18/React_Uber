@@ -41,7 +41,8 @@ class Input extends React.Component {
     });
 
     const inputClass = cx("control__input", {
-      "control__input--small": isSmall
+      "control__input--small": isSmall,
+      "control__input--time": type == "time"
     });
 
     return (

@@ -6,7 +6,6 @@ import Footer from "./components/Footer";
 
 const App = () => (
   <>
-    <h1>React Uber eats</h1>
     <Header />
     <div className="page">
       <main className="content">
