@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 const RestaurantCard = props => {
@@ -18,18 +17,6 @@ const RestaurantCard = props => {
 };
 
 export default RestaurantCard;
-// const mapState = state => {
-//   return {
-//     restaurantsList: selectRestaurntsList(state)
-//   };
-// };
-
-// const mapDispatch = { loadRestaurants };
-
-// export default connect(
-//   mapState,
-//   mapDispatch
-// )(RestaurantCard);
 
 RestaurantCard.propTypes = {
   imageUrl: PropTypes.string.isRequired,
